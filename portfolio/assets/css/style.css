@@ -1,0 +1,26 @@
+
+
+/* Header Styling */
+/* header {
+    padding: 20px 35px;
+    margin: 15px;
+    background-color: #052a2e;
+    
+} */
+header h1{
+    font-weight: bold;
+    font-size: 36px;
+    color: #052a2e;
+    margin: 0;
+    background-color: lightblue;
+
+}
+header a{
+    color: #052a2e;
+}
+
+
+/*About Me Styling */
+.about-me {
+    font-style: italic;
+}
