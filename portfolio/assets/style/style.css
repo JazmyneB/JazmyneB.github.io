@@ -1,0 +1,86 @@
+
+
+
+
+/* Header Styling */
+header {
+    padding: 20px 35px;
+    background-color: #0b2135;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: 80%;
+    z-index: 9999;
+}
+header h1 {
+    font-weight: bold;
+    font-size: 36px;
+    color: #0b2135;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgb(87, 221, 221);
+    text-align: left;
+    
+}
+header a {
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    color: rgb(87, 221, 221);
+}
+header nav{
+      margin: 7px 0;
+}
+header nav ul li {
+      display: inline;
+}
+header nav ul li a{
+      padding: 10px 15px;
+      font-weight: lighter;
+      font-size: 22px;
+      
+}
+
+/* Body Styling */
+body {
+    /* more on this crazy alphanumerical value in a minute! */
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: white;
+    height: 100%;
+  }
+
+/* Section Styling */
+.about-me h2{
+    font-size: 36px;
+    color: #0b2135;
+    
+   
+    
+ /*   border-right: 4px solid #0b2135; */
+}
+
+div{
+    border-left: 4px solid #0b2135;
+    margin: 10px 10px;
+    height: auto;
+    padding: 5px 5px;
+    text-align: left;
+
+}
+
+
+/*.left-col {
+    border-right: 4px solid #0b2135;
+}
+    .left-col,
+    .right-col {
+    float:left;
+    height:250px;
+    margin:2% 0;
+    padding:0 16px;
+    } */
