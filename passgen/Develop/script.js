@@ -2,8 +2,8 @@
 // Jazmyne B.
 
 var passLen = 0; //Password Length
-var newPass = []; //New Generated Password
-var newGen= '';
+var newPass = []; //Password Criteria Holder
+var newGen= ''; //New Password to be generated
 //lIST NUMBERS  
 var nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 //List Letters Upper vs Lowercase
@@ -33,7 +33,11 @@ function writePassword() {
 }
 
 function generatePassword(){
-  //Asks Length
+  //Clears the placeholders and new generated password
+  //if button is clicked again
+  newGen = "";
+  newPass = [];
+  //Asks Length, needs to be within parameters
   while (passLen < 8 || passLen > 128){
     passLen = window.prompt("How long do you wish your password to be? (8-128)");
     if (passLen < 8 || passLen > 128){
@@ -60,6 +64,11 @@ function generatePassword(){
     passSp = window.confirm("Would you like to include special chacters?");
 
   }
+
+
+  //Conditionals used to check which criteria were selected
+  //Push method turns [newPass] into Lists of Lists,
+  //So Let's Use concat method!
   if (passLow){
     //Test loop to see if desired length was generated, 
     //just from Lower Case Scenario
@@ -70,8 +79,6 @@ function generatePassword(){
      // return newPass;
      newPass = newPass.concat(alphLow);
   }
-  //Push turns it into Lists of Lists,
-  //So Let's Use concat method!
   if (passUp){
     newPass = newPass.concat(alphUp);
   }
