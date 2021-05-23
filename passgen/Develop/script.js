@@ -2,13 +2,15 @@
 // Jazmyne B.
 
 var passLen = 0; //Password Length
-var newPass = ""; //New Generated Password
+var newPass = []; //New Generated Password
+var newGen= '';
 //lIST NUMBERS  
 var nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 //List Letters Upper vs Lowercase
 var alphLow = ["a", "b", "c", "d", "e", "f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var alphUp = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-
+//Special Chars
+var spChar = ["!","@", "#","$","%","^","&","*"];
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -58,7 +60,33 @@ function generatePassword(){
     passSp = window.confirm("Would you like to include special chacters?");
 
   }
+  if (passLow){
+    //Test loop to see if desired length was generated, 
+    //just from Lower Case Scenario
+    //for (var i = 0; i < passLen; i++){
+    // var ran = Math.floor(Math.random() * alphLow.length);
+    // newPass += alphLow[ran];
+     // }
+     // return newPass;
+     newPass = newPass.concat(alphLow);
+  }
+  //Push turns it into Lists of Lists,
+  //So Let's Use concat method!
+  if (passUp){
+    newPass = newPass.concat(alphUp);
+  }
+  if (passNum){
+    newPass = newPass.concat(nums);
+  }
+  if (passSp){
+    newPass = newPass.concat(spChar);
+  }
   
+  for (var i = 0; i < passLen; i++){
+    var ran = Math.floor(Math.random() * newPass.length);
+    newGen += newPass[ran];
+  }
+  return newGen;
 }
 
 // Add event listener to generate button
