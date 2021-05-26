@@ -19,22 +19,37 @@ var startB = document.querySelector("#start");
 var timerEl = document.querySelector("#countdown");
 
 
-//Setting the timer
+//Setting the timer to countdown from 75
 function countdown(){
     var timeLeft = 75;
 
+    //Decrementing time and displaying text
     var timeInterval = setInterval(function(){
         timerEl.textContent = timeLeft;
         timeLeft--;
 
+        //Stop Timer when it reaches 0, so it won't continue counting down to negative numbers
+        if (timeLeft === 0){
+            timerEl.textContent = timeLeft;
+            clearInterval(timeInterval);
+        }
+
 }, 1000);
-}
+};
 
-
+//Display Questions and Options
 function displayQuiz(){
-    countdown();
+    var shows = document.querySelector("#quiz");
+
+    //Loops through Quest Array to grab the Questions and Options
+    for (var i = 0; i < quest.length; i++){
+        var quizQuest = quest[i].q;
+        var quizOpt = quest[i].opt;
+
+    }
 
 
 }
 
+//Start TImer? But we want to start timer and display quiz when button is clicked
 startB.onclick = countdown;
