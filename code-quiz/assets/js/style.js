@@ -40,16 +40,31 @@ function countdown(){
 //Display Questions and Options
 function displayQuiz(){
     var shows = document.querySelector("#quiz");
+    //countdown();
+    var optEl = document.querySelector("options");
+    //optEl.setAttribute("style", "background: blue");
 
     //Loops through Quest Array to grab the Questions and Options
     for (var i = 0; i < quest.length; i++){
         var quizQuest = quest[i].q;
-        var quizOpt = quest[i].opt;
-
+        shows.textContent = quizQuest;
+        // //loop to go through Options for each question
+         for (var j = 0; j < quest[i].opt.length; j++){
+        //     console.log(quest[i].opt[j]); // Grabs each option from Opt List
+             var quizOpt = quest[i].opt[j];
+        //     //shows.textContent = quizQuest + quizOpt;
+        // }
+        //optEl.textContent = quest[i].opt;
+        //This displays question and Options in One line, with Commas in b/w options
+        //shows.textContent = quizQuest;
+            optEl.textContent = quizOpt;
+         }
     }
+    
+    
 
 
 }
 
 //Start TImer? But we want to start timer and display quiz when button is clicked
-startB.onclick = countdown;
+startB.onclick = displayQuiz;
