@@ -41,27 +41,50 @@ function countdown(){
 function displayQuiz(){
     var shows = document.querySelector("#quiz");
     //countdown();
-    var optEl = document.querySelector("options");
+    var optEl = document.getElementById("options");
     //optEl.setAttribute("style", "background: blue");
 
     //Loops through Quest Array to grab the Questions and Options
     for (var i = 0; i < quest.length; i++){
         var quizQuest = quest[i].q;
+
+        //Displays Question
         shows.textContent = quizQuest;
-        // //loop to go through Options for each question
+         //loop to go through Options for each question
          for (var j = 0; j < quest[i].opt.length; j++){
-        //     console.log(quest[i].opt[j]); // Grabs each option from Opt List
-             var quizOpt = quest[i].opt[j];
-        //     //shows.textContent = quizQuest + quizOpt;
+           // console.log(quest[i].opt[j]); // Grabs each option from Opt List
+
+           // Adds button to each option choice
+            var selection = document.createElement("button");
+            //selection.style.lineBreak = "auto";
+            
+            
+            selection.textContent = (j+1) + ". " + quest[i].opt[j];
+            console.log(selection);
+
+
+
+            //Displays Option Choices
+            shows.appendChild(selection);
+           // var quizOpt = quest[i].opt[j];
+             //shows.textContent = quizQuest + quizOpt;
         // }
         //optEl.textContent = quest[i].opt;
         //This displays question and Options in One line, with Commas in b/w options
         //shows.textContent = quizQuest;
-            optEl.textContent = quizOpt;
+            
          }
-    }
+
+         selection.addEventListener("click", checkAnswer());
+    };
     
     
+
+
+}
+
+//Function to check whether the correct answer was chosen
+var checkAsnwer = function(event){
 
 
 }
