@@ -12,13 +12,22 @@ var quest = [{q:"JavaScript DataTypes include: ",opt:['Dictionaries', 'List', 'O
             {q:"Which function tells the browser to display a message to the user", opt:["prompt()", "confirm()", "alert()", "none of the above"], a:"alert()"},
             {q:"Which function allows users to enter information in a program?",opt:["prompt()", "confirm()", "alert()", "none of the above"], a:"prompt()"},
             {q:"Information that a user enters into a program is often referred to as what?", opt:["User Variable", "User Info", "User Answer", "User Input"], a:"User Input"},
-            {q:"How do you comment in JavaScript?",opt:["/*", "//", "<!-- --!>", "#"], a:"//"}
+            {q:"How do you comment in JavaScript?",opt:["/*", "//", "<!-- --!>", "#"], a:"//"},
+            {q:"Which git command is used to switch branches?", opt: ["Git checkout", "Git merge", "Git branch", "Git status"], a:"Git checkout"},
+            {q:"Which git command is used to combine branches together?", opt: ["Git checkout", "Git merge", "Git branch", "Git status"], a:"Git merge"}
+
+];
+record = [
+    {name: "Jack",
+    points: 10}
 ];
 //When the button is clicked
 var startB = document.querySelector("#start");
 var timerEl = document.querySelector("#countdown");
 var optEl = document.querySelector("#options");
 var shows = document.querySelector("#quiz");
+var bools = document.querySelector("#response");
+var points = document.querySelector("#score");
 
 var listitems = [];
 
@@ -28,17 +37,21 @@ var k = 0;
 //Setting the timer to countdown from 75
 function countdown(){
    // var timeLeft = 75;
-   document.getElementById("container").style.visibility = "hidden";
+   //document.getElementById("container").style.visibility = "hidden";
 
     //Decrementing time and displaying text
     var timeInterval = setInterval(function(){
-        timerEl.textContent = timeLeft;
+        //timerEl.textContent = timeLeft;
         timeLeft--;
+        //points.textContent = "Your Score: " + score;
+        timerEl.textContent = "Time Remaining: " + timeLeft;
 
         //Stop Timer when it reaches 0, so it won't continue counting down to negative numbers
-        if (timeLeft === 0){
-            timerEl.textContent = timeLeft;
+        if (timeLeft <= 0){
+            timerEl.textContent = 0;
             clearInterval(timeInterval);
+            //alert("Quiz Over");
+            quizEnd();
         }
 
 }, 1000);
@@ -47,38 +60,26 @@ function countdown(){
     
 };
 
+
+
 function showQuiz(){
     
-    //document.getElementById("container").style.visibility = "hidden";
-     
-    // var timeInterval = setInterval(function(){
-    //     timerEl.textContent = timeLeft;
-    //      timeLeft--;
-        
-    // }, 1000);
-
-    // if (timeLeft === 0){
-    //     timerEl.textContent = timeLeft;
-    //     clearInterval(timeInterval);
-    // }
+   
 
     //Displays Question from Array
-    shows.textContent = quest[k].q;
+    //shows.textContent = quest[k].q + "<br>";
 
     var ol = document.createElement("ol");
     var options = document.createElement("li");
-
-    shows.appendChild(ol);
     //ol.appendChild(options);
-
 
         //listitems.push(quest[k].q);
         //console.log(listitems);
-        //shows.innerHTML += "<br>" + listitems + "<br>";
+        shows.innerHTML = "<br>" + quest[k].q + "<br>";
 
     for (var i = 0; i < quest[k].opt.length; i++){
         var select = document.createElement("button")
-        console.log(quest[k].opt[i]);
+       // console.log(quest[k].opt[i]);
         choices = quest[k].opt[i];
         
         select.textContent =  (i+1) + ". " + choices;
@@ -104,84 +105,12 @@ function showQuiz(){
 
      
 };
-// function increment(){
-//     k++;
-//     console.log(k);
-//     //showQuiz();
-// };
 
-
-//Display Questions and Options
-function displayQuiz(){
-    //countdown();
-   
-    //optEl.setAttribute("style", "background: blue");
-    //shows.appendChild(timerEl);
-
-    //Loops through Quest Array to grab the Questions and Options
-    for (var i = 0; i < quest.length; i++){
-    //var i = 0;
-    //while (true) {
-        var quizQuest = quest[i].q;
-        console.log(quizQuest);
-        listitems.push(quizQuest);
-
-        //hides the Intro Content
-        document.getElementById("container").style.visibility = "hidden";
-       // document.getElementById("countdown").style.visibility= "show";
-        
-      // document.getElementById("countdown").innerHTML = countdown();
-
-        //Displays Question
-        //shows.textContent += listitems[i];
-        document.getElementById("quiz").innerHTML += "<br>" + listitems[i] + "<br>";
-        //shows.appendChild(listitems[i]);
-         //loop to go through Options for each question
-         for (var j = 0; j < quest[i].opt.length; j++){
-           // console.log(quest[i].opt[j]); // Grabs each option from Opt List
-
-           // Adds button to each option choice
-            var selection = document.createElement("button");
-            //selection.style.lineBreak = "auto";
-            var optVal = quest[i].opt[j];
-            //console.log(optVal);
-            
-            //Add Value to Each button
-            selection.value = optVal;
-            selection.addEventListener("click", function(){
-                checkAnswer(event, i-1);
-            });
-            selection.textContent = (j+1) + ". " + optVal;
-            console.log(selection);
-
-            
-
-            //Displays Option Choices
-            shows.appendChild(selection);
-            //document.getElementById("options").innerHTML += selection + "<br>";
-
-           // var quizOpt = quest[i].opt[j];
-             //shows.textContent = quizQuest + quizOpt;
-        // }
-        //optEl.textContent = quest[i].opt;
-        //This displays question and Options in One line, with Commas in b/w options
-        //shows.textContent = quizQuest;
-         }
-        
-
-         //selection.addEventListener("click", checkAnswer);
-         //selection.onclick = checkAnswer;
-    }
-    
-    
-
-
-};
 
 //Function to check whether the correct answer was chosen
 function checkAnswer(event, index){
     
-    event.preventDefault();
+    //event.preventDefault();
 //Testing to see if value from clicked button is being recoreded properly
     //console.log(event.target.value);
 
@@ -194,30 +123,96 @@ function checkAnswer(event, index){
     
 
     if (answer != quest[index].a){
-        //console.log("False");
-        timerLeft = timeLeft - 10;
+        console.log("False");
+        timeLeft = timeLeft - 10;
         console.log(timeLeft);
-        shows.innerHTML += "<br>" + "WRONG!";
+        points.textContent = "Your SCORE: " + score;
+        bools.textContent += "WRONG!";
+        setTimeout(function(){
+            bools.textContent = '';
+        }, 900);
         //increment();
         
     } else{
-        shows.innerHTML += "<br>" + "Correct!";
+        bools.textContent += "Correct!";
+        setTimeout(function(){
+            bools.textContent = '';
+        }, 900);
         score += 10;
+        points.textContent = "Your SCORE: " + score;
         //increment();
     }
     
-    console.log(timeLeft);
-    console.log(score);
+    //console.log(timeLeft);
+    //console.log(score);
     //console.log(k);
     k++;
-    if (timeLeft != 0 && k < quest.length){
-        showQuiz();
-    } else{
-        alert("Quiz Over");
-        shows.innerHTML += "Your Score is: " + score; 
+    if (timeLeft >= 0 && k < quest.length){
+        setTimeout(function(){
+            showQuiz();
+
+        }, 1000);
+        //showQuiz();
+    } 
+    else if (timeLeft === 0){
+        quizEnd();
+    }
+    else{
+        //alert("Quiz Over");
+        //timeLeft = 0;
+        //shows.innerHTML += "Your Score is: " + score; 
+        quizEnd();
     }
 
 };
+
+function quizEnd(){
+    timeLeft = 0;
+    //alert("Quiz Over");
+    shows.textContent = "Your score is: " + score;
+    setTimeout(function(){
+        recordScore();
+    }, 1000);
+    //recordScore();
+
+}
+
+function recordScore(){
+    //var userName = prompt("Please enter your name: ");
+    var userIn = document.createElement("INPUT");
+    userIn.setAttribute("type", "text");
+    userIn.setAttribute("id", "userName");
+    shows.textContent = "Your Score: " + score;
+    shows.innerHTML += "<br>" + "Please Enter Your Name: ";
+    shows.appendChild(userIn);
+    var subBtn = document.createElement("INPUT");
+    subBtn.setAttribute("type", "button");
+    subBtn.value = "Submit";
+    subBtn.addEventListener("click", function(){
+        var userName = document.getElementById("userName").value;
+        console.log(userName);
+        record.push({name:userName, points: score});
+        console.log(record)
+        showHighScore();
+    })
+    shows.appendChild(subBtn);
+    //record.name = userName;
+    //record.name += userName;
+    //record[userName].points = score;
+    //console.log(record);
+    //showHighScore();
+}
+
+function showHighScore(){
+
+    for(var i = 0; i <record.length; i++){
+        console.log(record[i].name);
+        console.log(record[i].score);
+    }
+
+    shows.textContent = "Name: " + record.name + "         High Score: " + score;
+
+}
 
 
 

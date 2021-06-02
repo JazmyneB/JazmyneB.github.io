@@ -1,0 +1,48 @@
+button{
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+}
+
+#quiz{
+    border: solid;
+    margin: 50px;
+    text-align: center;
+    padding: 150px 150px;
+    font-size: 25px;
+}
+
+
+
+
+#countdown{
+    text-align: right;
+    color: blue;
+    vertical-align: text-bottom;
+}
+
+.parent {
+    position: relative;
+
+}
+.child{
+    position: absolute;
+    top: 0;
+    right: 10%;
+    text-align: right;
+}
+
+#score{
+    color: blue;
+    vertical-align: text-bottom;
+    
+}
+
+#response{
+    margin: 0px;
+    padding:20px;
+    text-align: center;
+    color:darkgrey;
+    font-style: italic;
+    font-size: 30px;
+}
