@@ -18,21 +18,111 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <!--Added ICON CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Work Day Scheduler</title>
   </head>
 
   <body>
+    
     <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
+      <h1 class="display-3">Daily Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
+    
     <div class="container">
       <!-- Timeblocks go here -->
+      <div class = "row">
+        <div class =  "hour col-1 border border-white border-left-0 bg-dark text-light">
+          9am
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+        
+      </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          10am
+        </div>
+        <textarea class = "form-control col-8 bg-light">
+        </textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task">
+          </span>
+        </button>
+      </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          11am
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+      </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          12pm
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+      </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          1pm
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+      </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          2pm
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+      </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          3pm
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+        </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          4pm
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+      </div>
+      <div class = "row">
+        <div class = "hour col-1 border border-white border-left-0 bg-dark text-light">
+          5pm
+        </div>
+        <textarea class="form-control col-8 bg-light"></textarea>
+        <button type="button" class = "saveBtn col-1 btn rounded-right">
+          <span class="oi oi-task"></span>
+        </button>
+      </div>
+    </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/script.js"></script>
   </body>
 </html>

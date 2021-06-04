@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Lucida Handwriting", "Brush Script MT", cursive;
   font-size: 16px;
   line-height: 1;
 }
@@ -61,7 +61,7 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
+  background-color: #d506c4;
   color: white;
 }
 
@@ -69,3 +69,19 @@ textarea{
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+
+/* Extra small devices (portrait phones, less than 576px) 
+@media (max-width: 575.98px) and (max-width: 767.98px) and (max-width: 991.98px) and (max-width: 1199.98px){
+  
+
+ }
+
+Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+ Medium devices (tablets, less than 992px) 
+@media (max-width: 991.98px) { ... }
+
+ Large devices (desktops, less than 1200px) 
+@media (max-width: 1199.98px) { ... } */
