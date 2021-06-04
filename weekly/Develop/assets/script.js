@@ -8,7 +8,7 @@ var todayEl = document.querySelector("#currentDay");
 //Grabbing current date
 var now = moment();
 //The Current Hour
-var nowHour = now.format("h");
+var nowHour = now.format("H"); // H-> 24 hour h-> 12 hour
 //console.log(nowHour);
 
 //Display Current Date
@@ -33,12 +33,24 @@ $(".saveBtn").on("click", function(){
 
     //Save item in local storage with key ...
     //Key should be ID?? to know which block is being recorded on...
-    localStorage.setItem("9", textIn);
+    //localStorage.setItem("9", textIn);
     //how to grab ID from textarea?
-    console.log($(this).parent().attr("id"));
-    console.log(localStorage.getItem("9"));
+    //Parent is div => class = ROW
+    //console.log($(this).parent().attr("id"));
+    var localKey = $(this).parent().attr("id");
+    localStorage.setItem(localKey, textIn);
+    //console.log(localStorage.getItem("9"));
     //console.log($("9 .form-control").val(localStorage.getItem("9")));
+    //document.getElementById(localKey+"am").innerHTML = localStorage.getItem(localKey);
 
 });
+
+// if (nowHour < 9){
+//     $("9 .description").addClass("past");
+// } else if (nowHour > 9){
+//     $("9 .description").addClass("future");
+// } else{
+//     $("9 .description").addClass("present");
+// }
 
 //console.log($("9am .form-control").val(localStorage.getItem("9am")));
