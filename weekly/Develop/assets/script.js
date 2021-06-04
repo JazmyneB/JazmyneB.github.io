@@ -45,12 +45,32 @@ $(".saveBtn").on("click", function(){
 
 });
 
+//how to update class for past, present and future
 // if (nowHour < 9){
-//     $("9 .description").addClass("past");
+//     $(".9").addClass("future");
 // } else if (nowHour > 9){
-//     $("9 .description").addClass("future");
+//     $(".9").addClass("past");
 // } else{
-//     $("9 .description").addClass("present");
+//     $(".9").addClass("present");
 // }
+var hours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
+//Create a loop to add Past/Present/Future to NOT have repititive code.
+for (var i = 0; i<hours.length; i++){
+    //Compares the current hour with the time block hour
+    if (nowHour < hours[i]){
+        $("."+hours[i]).addClass("future");
+    } else if (nowHour > hours[i]){
+        $("."+hours[i]).addClass("past");
+    } else{
+        $("."+hours[i]).addClass("present");
+    }
+}
 
-//console.log($("9am .form-control").val(localStorage.getItem("9am")));
+for (var i = 0; i<hours.length;i++){
+    ($("."+hours[i]).val(localStorage.getItem(hours[i])));
+}
+
+
+
+
+//console.log($(".9").val(localStorage.getItem("9")));
