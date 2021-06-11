@@ -58,17 +58,50 @@ var displayCurrent = function(name, temp, humid, wind, lat, long){
         //console.log(response.json())
          if (response.ok){
              response.json().then(function(data){
-                 console.log(data.current.uvi)
-                 var uv = data.current.uvi;
-                 if (data.current.uvi === 0){
+                console.log(data);
+                //var dayOne = moment(data.daily[1].dt);
+                //var dayPlus = dayOne.format("l");
+                //console.log(dayPlus);
+                var uv = data.current.uvi;
+                if (data.current.uvi === 0){
                     uv = "0";
                 }
-                currentStatus.innerHTML += "<br><div class='row'> UV Index: <span class='badge badge-success'>"+ uv + "<span></div>";
+                currentStatus.innerHTML += "<br><div class='row'> UV Index: <span class='badge badge-success'> "+ uv + "<span></div>";
+                //forecast(name);
+                //console.log(currentDate.add(1, 'd').format('l'));
+                for (var i=0; i < 5; i++){
+                    k = 1;
+                    var dailyEl = document.getElementById("Day"+i);
+                    dailyEl.innerHTML = "<h5 class='font-weight-bold'>" + currentDate.add(k, 'd').format('l')  + "</h5> <br> <div class='row'> Temp: " + data.daily[i].temp.day + "\xB0F</div><div  class='row'> Wind: " + data.daily[i].wind_speed + " MPH</div><div class ='row'> Humidity: " + data.daily[i].humidity + "%</div>"; 
+                }
+
                 
              }) 
          }
         })
 };
+
+// var forecast = function(name){
+
+//     var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=";
+
+//     fetch(apiUrl + name + "&units=imperial&appid=55d754b5ee491bdb9f01f7162bd9bbd5").then(function(response){
+//         if (response.ok){
+//             response.json().then(function(data){
+//                 console.log(data);
+//             })
+//         }
+//     })
+
+//     var tet = 1623520800;
+//     var test = moment(tet);
+//     console.log(tet);
+//     console.log(new SimpleDateFormat("H:mm  dd MMM yy").format(new Date(tet*1000)));
+
+
+// }
+
+
 
 searchEl.addEventListener("click", grabCity);
 
