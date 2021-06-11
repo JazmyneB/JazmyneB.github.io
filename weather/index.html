@@ -21,32 +21,37 @@
     <h2>Weather Dashboard</h2>
     </div>
     
-    <main class="flex-row justify-space-between">
-        <div class = "col-12 col-md-4"
-        >
+    <!--<main class="flex-row justify-space-between"> -->
+    <div class = "container-fluid">
+        <div class="row">
+        <div class = "col-md-3">
+            <h3 class="font-weight-bold">Search for a City:</h3>
             <form id = "city-form">
+                
+                <input id = "city" class="form-control" placeholder="San Diego">
+                <br>
+                <button type="button" id="search" class="btn btn-primary btn-lg btn-block">Search</button>
             
-                <h3>Search for a City:</h3>
-           
-                <input id = "city" placeholder="San Diego">
-            
-            
-                <button type="button" id="search" class="btn btn-primary">Search</button>
             
             </form>
             <div id = "history">
             </div>
+            </div>
+            
+        
+        <div id="current" class ="col-md-6 offset-md-0 jumbotron border border-secondary bg-transparent" style="height: 325px;">
+            <h4 id="city-Lookup" class = "display-4">Click Search</h4>
+            <div id = "current-info">
+            </div>
         </div>
-        <div class ="col-12 col-md-8">
-            this
         </div>
-        </main>
+    </div>
         
 
 
-    
-
-  <script src="./assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html
