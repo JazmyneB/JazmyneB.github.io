@@ -3,6 +3,8 @@
 var searchEl = document.querySelector("#search");
 var currentEl = document.getElementById("city-Lookup");
 var currentStatus = document.getElementById("current-info");
+var historyEl = document.getElementById("history");
+var count = 0;
 
 //API URL
 var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
@@ -29,7 +31,9 @@ var grabCity = function(event){
         //Need Temp, Wind, Humidity & UV Index
         if (response.ok) {
              response.json().then(function(data) {
-               displayCurrent(cityEl.value, data.main.temp,data.main.humidity,data.wind.speed, data.coord.lat,data.coord.lon);
+                //historyEl.innerHTML
+               displayCurrent(cityEl.value, data.coord.lat, data.coord.lon);
+               //displayHistory(cityEl.value);
              });
            } else {
              alert("Error: Please check spelling");
@@ -39,7 +43,7 @@ var grabCity = function(event){
 
 };
 
-var displayCurrent = function(name, temp, humid, wind, lat, long){
+var displayCurrent = function(name, lat, long){
     var currentDate = moment();
     var now = currentDate.format('l');
 
@@ -47,7 +51,7 @@ var displayCurrent = function(name, temp, humid, wind, lat, long){
             currentEl.innerHTML = name + " (" + now + ")";
             // response.json().then(function(data){
                  //var uv = data.current.uvi;
-            currentStatus.innerHTML = "<div class = 'row'> Temp: " + temp +"\xB0F </div> <br>  <div class = 'row'> Wind: " + wind + " MPH </div> <br> <div class='row'> Humidity: " + humid + " % </div>" ;
+            // currentStatus.innerHTML = "<div class = 'row'> Temp: " + data.current.temp +"\xB0F </div> <br>  <div class = 'row'> Wind: " + data.current.wind_speed + " MPH </div> <br> <div class='row'> Humidity: " + data.current.humidity + " % </div>" ;
         // });
         //getUV(lat, long);
     
@@ -66,7 +70,7 @@ var displayCurrent = function(name, temp, humid, wind, lat, long){
                 if (data.current.uvi === 0){
                     uv = "0";
                 }
-                currentStatus.innerHTML += "<br><div class='row'> UV Index: <span class='badge badge-success'> "+ uv + "<span></div>";
+                currentStatus.innerHTML ="<div class = 'row'> Temp: " + data.current.temp +"\xB0F </div> <br>  <div class = 'row'> Wind: " + data.current.wind_speed + " MPH </div> <br> <div class='row'> Humidity: " + data.current.humidity + " % </div> <br><div class='row'> UV Index: <span class='badge badge-success'> "+ uv + "<span></div>";
                 //forecast(name);
                 //console.log(currentDate.add(1, 'd').format('l'));
                 for (var i=0; i < 5; i++){
@@ -74,12 +78,28 @@ var displayCurrent = function(name, temp, humid, wind, lat, long){
                     var dailyEl = document.getElementById("Day"+i);
                     dailyEl.innerHTML = "<h5 class='font-weight-bold'>" + currentDate.add(k, 'd').format('l')  + "</h5> <br> <div class='row'> Temp: " + data.daily[i].temp.day + "\xB0F</div><div  class='row'> Wind: " + data.daily[i].wind_speed + " MPH</div><div class ='row'> Humidity: " + data.daily[i].humidity + "%</div>"; 
                 }
+                displayHistory(name);
+
 
                 
              }) 
          }
         })
 };
+
+var displayHistory = function(name){
+
+    localStorage.setItem(count, name);
+    console.log(localStorage.getItem(count));
+    historyEl.innerHTML += "<button id='histBtn' type='button' class=' btn btn-secondary btn-block'>" + localStorage.getItem(count) + "</button>";
+
+    var buttonEl = document.querySelector("#histBtn");
+    buttonEl.addEventListener('click', displayCurrent);
+
+
+    count++;
+    
+}
 
 // var forecast = function(name){
 
