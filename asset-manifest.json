@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b9386de2.chunk.css",
+    "main.js": "/static/js/main.793bc9bb.chunk.js",
+    "main.js.map": "/static/js/main.793bc9bb.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.caa3699a.js",
+    "runtime-main.js.map": "/static/js/runtime-main.caa3699a.js.map",
+    "static/js/2.0f9b16a8.chunk.js": "/static/js/2.0f9b16a8.chunk.js",
+    "static/js/2.0f9b16a8.chunk.js.map": "/static/js/2.0f9b16a8.chunk.js.map",
+    "static/js/3.ef2e54fc.chunk.js": "/static/js/3.ef2e54fc.chunk.js",
+    "static/js/3.ef2e54fc.chunk.js.map": "/static/js/3.ef2e54fc.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.b9386de2.chunk.css.map": "/static/css/main.b9386de2.chunk.css.map",
+    "static/js/2.0f9b16a8.chunk.js.LICENSE.txt": "/static/js/2.0f9b16a8.chunk.js.LICENSE.txt",
+    "static/media/code-quiz.jpeg": "/static/media/code-quiz.cb033a09.jpeg",
+    "static/media/code-quiz2.jpeg": "/static/media/code-quiz2.3ed6a059.jpeg",
+    "static/media/cover-image.20a42d18.jpg": "/static/media/cover-image.20a42d18.jpg",
+    "static/media/food-festival.JPG": "/static/media/food-festival.cd6746f7.JPG",
+    "static/media/food-festival2.JPG": "/static/media/food-festival2.f71ec184.JPG",
+    "static/media/silver-stream.png": "/static/media/silver-stream.026d9a61.png",
+    "static/media/weather.jpeg": "/static/media/weather.7495cd12.jpeg",
+    "static/media/weather2.jpeg": "/static/media/weather2.4e4a3b69.jpeg",
+    "static/media/weekly.jpeg": "/static/media/weekly.47fb2d22.jpeg",
+    "static/media/weekly2.jpeg": "/static/media/weekly2.d5335703.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.caa3699a.js",
+    "static/js/2.0f9b16a8.chunk.js",
+    "static/css/main.b9386de2.chunk.css",
+    "static/js/main.793bc9bb.chunk.js"
+  ]
+}
